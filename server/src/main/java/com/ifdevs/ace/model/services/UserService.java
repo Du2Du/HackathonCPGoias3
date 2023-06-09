@@ -5,6 +5,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ifdevs.ace.exceptions.EntityExistsException;
@@ -42,8 +43,8 @@ public class UserService {
   private Response generateNewUserEntity(RegisterProfessionalUserDTO registerProfessionalUserDTO) {
     User userToSave = new User();
     BeanUtils.copyProperties(registerProfessionalUserDTO, userToSave);
-    System.out.println(userToSave.getName());
     this.roleService.generateNewRole(RoleEnum.TEACHER);
+    userToSave.setPassword(new BCryptPasswordEncoder().encode(userToSave.getPassword()));
     try {
       userRepository.save(userToSave);
       return null;
