@@ -17,3 +17,22 @@ html {
   width: 100%;
   font-family: "Roboto", sans-serif;
 }
+
+.outlineButton,
+.fillButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 200px;
+}
+
+.outlineButton {
+  background-color: #032f5d;
+  color: #fff;
+}
+
+.fillButton {
+  background-color: #fff;
+  color: #000;
+}
