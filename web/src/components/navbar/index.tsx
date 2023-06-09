@@ -24,7 +24,7 @@ export const NavBar = () => {
       >
         <Image width={50} height={50} />
       </div>
-      <Link href={"/"} className={setClassForOptions("/")}>
+      <Link href={"/"} className={setClassForOptions("/dashboard")}>
         <BiHomeAlt className={styles.icon} size={30} />
         <span className={styles.text}>Inicio</span>
       </Link>

@@ -1,0 +1,22 @@
+@import "../../app/variables.module.scss";
+
+.textTitle {
+    background: #032f5d;
+    color: white;
+    font-size: xx-large;
+    padding: 1%;
+}
+
+.dashBody {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.dashItems {
+    background: #10508d;
+    padding: 2% 10% 10%;
+}
