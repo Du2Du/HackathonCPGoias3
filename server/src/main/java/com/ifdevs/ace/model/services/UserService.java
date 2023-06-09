@@ -31,10 +31,8 @@ public class UserService {
   }
 
   private Response verifyIfUserAlreadyExists(String cpf, String email) {
-    boolean userExistsWithEmail = userRepository.findByEmail(cpf)
-        .isPresent();
-    boolean userExistsWithCpf = userRepository.findByCpf(email)
-        .isPresent();
+    boolean userExistsWithEmail = userRepository.findByEmail(cpf) != null;
+    boolean userExistsWithCpf = userRepository.findByCpf(email) != null;
     if (userExistsWithCpf || userExistsWithEmail)
       throw new EntityExistsException("Usuário ja cadastrado");
     return null;
