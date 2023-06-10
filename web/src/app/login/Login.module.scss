@@ -1,0 +1,34 @@
+@import "../variables.module.scss";
+
+.page{
+   background-color: $primary-color;
+}
+.box{
+    background-color: $neutral-color;
+    h1{
+        color: black;
+    }
+    label{
+        color: black;
+    }
+    p{
+        color: black;
+    }
+    button{
+        color: black;
+        background: $secondary-color;
+    }
+    input{
+        background-color: $secondary-color;
+    }
+    input::placeholder {
+        color: black;
+    }
+    .espaco{
+        text-align: center;
+    }
+    .teste{
+        color: black;
+        
+    }
+}

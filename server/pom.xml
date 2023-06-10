@@ -21,6 +21,7 @@
     <logback-ext-loggly.version>0.1.5</logback-ext-loggly.version>
     <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
     <springdoc.version>1.6.9</springdoc.version>
+    <jsonwebtoken.version>0.11.5</jsonwebtoken.version>
   </properties>
   <dependencies>
     <dependency>
@@ -132,7 +133,6 @@
       <version>${logback-ext-loggly.version}</version>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
