@@ -91,7 +91,7 @@ export default function Login() {
                 <p className={styles.espaco+" text-sm font-light text-gray-500 dark:text-gray-400"}>
                   Ainda não tem uma conta? {" "}
                   <a
-                    href="#"
+                    href="/register"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Cadastre-se!
