@@ -25,7 +25,7 @@ export default function Home() {
       </nav>
       <section>
         <div className={styles.pageTitle}>
-          O sistema de análise de perfil comportamental
+          Plataforma de análise de perfil comportamental
         </div>
         <Link href={"/config"} className="outlineButton rounded-full mt-3">
           Saiba mais
