@@ -1,5 +1,7 @@
 package com.ifdevs.ace.model.dtos;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AvaliateResponseDTO {
-  private String question;
+  private UUID questionUUID;
   private float score;
   private String observation;
 }

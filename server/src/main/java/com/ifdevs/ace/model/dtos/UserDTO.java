@@ -16,12 +16,14 @@ public class UserDTO {
   @Email
   private String email;
   private String roleName;
+  private int age;
 
   @Builder
-  public UserDTO(UUID uuid, String name, String email, String roleName) {
+  public UserDTO(UUID uuid, String name, String email, String roleName, int age) {
     this.uuid = uuid;
     this.name = name;
     this.email = email;
     this.roleName = roleName;
+    this.age = age;
   }
 }

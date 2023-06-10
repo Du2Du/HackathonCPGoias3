@@ -59,7 +59,7 @@ public class UserService {
   }
 
   public ResponseEntity<UserDTO> getByUUID(UUID uuid) {
-    User user = userRepository.getReferenceById(uuid);
+    User user = userRepository.getByUUID(uuid);
     UserDTO userDTO = new UserDTO();
     BeanUtils.copyProperties(user, userDTO);
     userDTO.setRoleName(user.getRole().getRoleName());

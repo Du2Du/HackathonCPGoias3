@@ -37,6 +37,8 @@ public class BehavioralProfileService {
     List<AvaliateResponseDTO> avaliateResponseDTOs = avaliateStudentDTO.getAvaliateResponses();
     try {
       avaliateResponseDTOs.forEach(avaliation -> this.calculateAvaliation(behavioralProfile, avaliation));
+      behavioralProfile.setQuantityAvaliations(behavioralProfile.getQuantityAvaliations() + 1);
+      behavioralProfileRepository.save(behavioralProfile);
       return ResponseEntity.ok("Estudante avaliado com sucesso");
     } catch (Exception e) {
       throw new ServerErrorException("Erro ao avaliar estudante");
@@ -50,7 +52,7 @@ public class BehavioralProfileService {
 
   private UserDTO verifyIfEstudentExists(UUID uuid) {
     UserDTO user = userService.getByUUID(uuid).getBody();
-    if (user == null || user.getRoleName() != RoleEnum.STUDENT.valueName)
+    if (user == null || !RoleEnum.STUDENT.valueName.equals(user.getRoleName()))
       throw new ResourceNotFoundException("Estudante não encontrado");
     return user;
   }
@@ -60,7 +62,6 @@ public class BehavioralProfileService {
     float newScore = (behavioralProfile.getBehavioralRating() * behavioralProfile.getQuantityAvaliations()
         + avaliationScore) / (behavioralProfile.getQuantityAvaliations() + 1);
     behavioralProfile.setBehavioralRating(newScore);
-    behavioralProfileRepository.save(behavioralProfile);
   }
 
   public ResponseEntity<BehavioralProfileDTO> getBehavioralProfile(UUID studentUuid) {

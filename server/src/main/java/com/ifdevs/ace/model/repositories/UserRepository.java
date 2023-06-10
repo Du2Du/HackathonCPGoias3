@@ -19,4 +19,7 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
   @Query("select u from User u where u.role.roleName = 'STUDENT'")
   public List<User> findAllStudents();
+
+  @Query("select u from User u where u.uuid = ?1")
+  public User getByUUID(UUID uuid);
 }

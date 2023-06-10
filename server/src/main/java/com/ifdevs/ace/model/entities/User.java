@@ -54,6 +54,8 @@ public class User {
   @ManyToOne
   private Role role;
 
+  private int age;
+
   @OneToOne
   private BehavioralProfile behavioralProfile;
 }
