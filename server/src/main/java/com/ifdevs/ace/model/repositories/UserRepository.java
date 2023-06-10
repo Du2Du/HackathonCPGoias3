@@ -1,5 +1,6 @@
 package com.ifdevs.ace.model.repositories;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -15,4 +16,10 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
   @Query("select u from User u where u.cpf = ?1")
   public Optional<User> findByCpf(String cpf);
+
+  @Query("select u from User u where u.role.roleName = 'STUDENT'")
+  public List<User> findAllStudents();
+
+  @Query("select u from User u where u.uuid = ?1")
+  public User getByUUID(UUID uuid);
 }

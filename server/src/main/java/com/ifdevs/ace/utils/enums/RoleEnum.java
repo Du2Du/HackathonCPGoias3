@@ -1,7 +1,7 @@
 package com.ifdevs.ace.utils.enums;
 
 public enum RoleEnum {
-  ESTUDENT("ESTUDENT"),
+  STUDENT("STUDENT"),
   ADMIN("ADMIN"),
   TEACHER("TEACHER"),
   RESPONSIBLE("RESPONSIBLE");

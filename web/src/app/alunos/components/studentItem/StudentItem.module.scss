@@ -1,0 +1,11 @@
+@import "../../../variables.module.scss";
+
+.studentBox {
+  border-radius: 5px;
+  border: 1px solid $secondary-color;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
