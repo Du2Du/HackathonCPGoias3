@@ -1,0 +1,8 @@
+authentication:
+  auth:
+    secureToken: true
+    tokenExpirationMsec: 100000
+    tokenSecret: teste
+    refreshTokenExpirationMsec: 10000000
+    accessTokenCookieName: accessToken
+    refreshTokenCookieName: refreshToken
