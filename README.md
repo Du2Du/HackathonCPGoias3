@@ -3,6 +3,7 @@
 # Plataforma de Avaliação e Análise de Desempenho de Alunos
 
 # Descrição
+
 O sistema é uma plataforma de avaliação e análise de desempenho de alunos, desenvolvida para auxiliar os professores no acompanhamento e identificação de problemas comportamentais. Ele permite que os professores realizem avaliações aleatórias aos alunos registrados como presentes no final de cada aula.
 
 Após coletar os dados das avaliações, o sistema realiza uma análise de dados abrangente, utilizando algoritmos avançados para identificar padrões e tendências nos resultados. O objetivo é facilitar a percepção de problemas comportamentais entre os alunos, fornecendo aos professores uma compreensão mais clara do desempenho dos estudantes e identificando áreas que requerem atenção especial.
@@ -44,4 +45,8 @@ Conexão com a internet para coleta e análise de dados.
 
 Conclusão
 
-O sistema de Avaliação e Análise de Desempenho de Alunos oferece uma solução eficiente e automatizada para auxiliar os professores no acompanhamento e identificação de problemas comportamentais. Ao coletar e analisar dados, o sistema fornece informações valiosas ao corpo docente, permitindo melhorar o ensino e implementar intervenções individualizadas. Com essa plataforma, os professores têm uma compreensão mais clara do desempen
+O sistema de Avaliação e Análise de Desempenho de Alunos oferece uma solução eficiente e automatizada para auxiliar os professores no acompanhamento e identificação de problemas comportamentais. Ao coletar e analisar dados, o sistema fornece informações valiosas ao corpo docente, permitindo melhorar o ensino e implementar intervenções individualizadas. Com essa plataforma, os professores têm uma compreensão mais clara do desempenho.
+
+# Requisitos para Iniciar a aplicação
+
+NPM, node versão 16 ou mais (recomendado), executar comando _npm run start_ para visualizar a versão web. Na aplicação backend, é necessário ter o executável do maven, e rodar o comando _mvn spring-boot:run_ para iniciar.
