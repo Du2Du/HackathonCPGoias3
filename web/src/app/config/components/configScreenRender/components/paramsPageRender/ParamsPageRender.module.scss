@@ -1,0 +1,13 @@
+@import "../../../../../variables.module.scss";
+
+.inputBox {
+  background-color: $secondary-color;
+}
+
+.buttonBox {
+  background-color: $secondary-color;
+  padding: 5px 10px;
+  width: 100px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
