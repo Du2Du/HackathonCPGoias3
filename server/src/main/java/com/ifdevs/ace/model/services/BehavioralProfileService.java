@@ -1,8 +1,10 @@
 package com.ifdevs.ace.model.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,11 +13,13 @@ import com.ifdevs.ace.exceptions.ResourceNotFoundException;
 import com.ifdevs.ace.exceptions.ServerErrorException;
 import com.ifdevs.ace.model.dtos.AvaliateResponseDTO;
 import com.ifdevs.ace.model.dtos.AvaliateStudentDTO;
+import com.ifdevs.ace.model.dtos.BehavioralProfileDTO;
 import com.ifdevs.ace.model.dtos.UserDTO;
 import com.ifdevs.ace.model.entities.BehavioralProfile;
 import com.ifdevs.ace.model.repositories.BehavioralProfileRepository;
 import com.ifdevs.ace.utils.enums.RoleEnum;
 
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -59,4 +63,10 @@ public class BehavioralProfileService {
     behavioralProfileRepository.save(behavioralProfile);
   }
 
+  public ResponseEntity<BehavioralProfileDTO> getBehavioralProfile(UUID studentUuid) {
+    BehavioralProfile behavioralProfile = this.getBehavioralProfileByEstudentUUID(studentUuid);
+    BehavioralProfileDTO behavioralProfileDTO = new BehavioralProfileDTO();
+    BeanUtils.copyProperties(behavioralProfile, behavioralProfileDTO);
+    return ResponseEntity.ok(behavioralProfileDTO);
+  }
 }
