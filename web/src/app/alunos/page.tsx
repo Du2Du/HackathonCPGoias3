@@ -9,7 +9,7 @@ import { IStudentProps, StudentItem } from "./components/studentItem";
 export default function Alunos() {
   const { data: students, isLoading } = useQuery<IStudentProps[]>(
     "students",
-    () => Backend.get("/user").then((res) => res.data)
+    () => Backend.get("/behavioral-profile").then((res) => res.data)
   );
   return (
     <main className={styles.mainContainer}>

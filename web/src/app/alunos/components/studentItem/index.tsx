@@ -11,14 +11,12 @@ export interface IStudentProps {
   uuid: string;
   roleName: string;
   age?: number;
+  score: number;
 }
 
 export const StudentItem: React.FC<{ student: IStudentProps }> = ({
   student,
 }) => {
-  const redirectToBehaviorPage = () => {
-    location.assign(`/alunos?uuid=${student.uuid}`);
-  };
   return (
     <div className={styles.studentBox}>
       <div>
@@ -34,8 +32,11 @@ export const StudentItem: React.FC<{ student: IStudentProps }> = ({
           <b>Idade: </b>
           <span>{student.age ?? "Não disponivel"} </span>
         </div>
+        <div>
+          <b>Avaliação Média: </b>
+          <span>{student.score} </span>
+        </div>
       </div>
-      <AiOutlineEye size={30} onClick={redirectToBehaviorPage} />
     </div>
   );
 };

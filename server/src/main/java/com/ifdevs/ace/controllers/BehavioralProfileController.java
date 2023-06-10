@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ifdevs.ace.model.dtos.AvaliateStudentDTO;
 import com.ifdevs.ace.model.dtos.BehavioralProfileDTO;
+import com.ifdevs.ace.model.dtos.StudentDTO;
 import com.ifdevs.ace.model.dtos.UserDTO;
 import com.ifdevs.ace.model.entities.BehavioralProfile;
 import com.ifdevs.ace.model.services.BehavioralProfileService;
@@ -35,6 +36,11 @@ public class BehavioralProfileController {
   @GetMapping("/{studentUUID}")
   public ResponseEntity<BehavioralProfileDTO> getBehavioralProfile(@RequestParam("studentUUID") UUID studentUUID) {
     return behavioralProfileService.getBehavioralProfile(studentUUID);
+  }
+
+  @GetMapping("")
+  public ResponseEntity<List<StudentDTO>> getAllStudents() {
+    return behavioralProfileService.getAllStudents();
   }
 
 }

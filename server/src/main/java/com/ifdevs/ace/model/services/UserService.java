@@ -16,6 +16,7 @@ import com.ifdevs.ace.exceptions.EntityExistsException;
 import com.ifdevs.ace.exceptions.ServerErrorException;
 import com.ifdevs.ace.model.dtos.BehavioralProfileDTO;
 import com.ifdevs.ace.model.dtos.RegisterProfessionalUserDTO;
+import com.ifdevs.ace.model.dtos.StudentDTO;
 import com.ifdevs.ace.model.dtos.UserDTO;
 import com.ifdevs.ace.model.entities.BehavioralProfile;
 import com.ifdevs.ace.model.entities.User;
@@ -85,20 +86,7 @@ public class UserService {
     return Math.floor(Math.random() * studentCount) + 1;
   }
 
-  public ResponseEntity<List<UserDTO>> getAllStudents() {
-    List<User> users = this.userRepository.findAllStudents();
-    List<UserDTO> usersDTO = new ArrayList<>();
-    users
-        .forEach(user -> this.transformBehavioralToDTO(user, usersDTO));
-    return ResponseEntity.ok(usersDTO);
+  public List<User> findAllStudents() {
+    return userRepository.findAllStudents();
   }
-
-  private void transformBehavioralToDTO(User user,
-      List<UserDTO> usersDTO) {
-    UserDTO userDTO = new UserDTO();
-    BeanUtils.copyProperties(user, userDTO);
-    userDTO.setRoleName(user.getRole().getRoleName());
-    usersDTO.add(userDTO);
-  }
-
 }

@@ -14,8 +14,10 @@ import com.ifdevs.ace.exceptions.ServerErrorException;
 import com.ifdevs.ace.model.dtos.AvaliateResponseDTO;
 import com.ifdevs.ace.model.dtos.AvaliateStudentDTO;
 import com.ifdevs.ace.model.dtos.BehavioralProfileDTO;
+import com.ifdevs.ace.model.dtos.StudentDTO;
 import com.ifdevs.ace.model.dtos.UserDTO;
 import com.ifdevs.ace.model.entities.BehavioralProfile;
+import com.ifdevs.ace.model.entities.User;
 import com.ifdevs.ace.model.repositories.BehavioralProfileRepository;
 import com.ifdevs.ace.utils.enums.RoleEnum;
 
@@ -70,4 +72,23 @@ public class BehavioralProfileService {
     BeanUtils.copyProperties(behavioralProfile, behavioralProfileDTO);
     return ResponseEntity.ok(behavioralProfileDTO);
   }
+
+  public ResponseEntity<List<StudentDTO>> getAllStudents() {
+    List<User> users = this.userService.findAllStudents();
+    List<StudentDTO> studentDTOs = new ArrayList<>();
+    users
+        .forEach(user -> this.transformBehavioralToDTO(user, studentDTOs));
+    return ResponseEntity.ok(studentDTOs);
+  }
+
+  private void transformBehavioralToDTO(User user,
+      List<StudentDTO> usersDTO) {
+    StudentDTO userDTO = new StudentDTO();
+    BehavioralProfile behavioralProfile = this.getBehavioralProfileByEstudentUUID(user.getUuid());
+    BeanUtils.copyProperties(user, userDTO);
+    userDTO.setRoleName(user.getRole().getRoleName());
+    userDTO.setScore(behavioralProfile.getBehavioralRating());
+    usersDTO.add(userDTO);
+  }
+
 }
