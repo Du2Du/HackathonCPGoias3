@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.ifdevs.ace.model.entities.BehavioralProfile;
 
 public interface BehavioralProfileRepository extends JpaRepository<BehavioralProfile, UUID> {
-  @Query("select b from BehavioralProfile b where b.student.uuid = ?1")
+  @Query(value = "select b from behavioral_profile b where b.student_uuid = ?1", nativeQuery = true)
   Optional<BehavioralProfile> getByEstudentUUID(UUID uuid);
 }
