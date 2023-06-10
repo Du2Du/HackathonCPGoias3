@@ -1,0 +1,23 @@
+@import "../../app/variables.module.scss";
+
+.configPanel {
+  height: 100%;
+  width: 20%;
+  background: #043d78;
+
+  .configButton {
+    display: flex;
+    justify-content: center;
+    padding: 7%;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    color: $neutral-color;
+    background: $primary-color;
+
+    .text {
+      font-size: medium;
+
+      color: white;
+    }
+  }
+}
