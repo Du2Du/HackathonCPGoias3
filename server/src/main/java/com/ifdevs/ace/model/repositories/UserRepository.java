@@ -11,8 +11,8 @@ import com.ifdevs.ace.model.entities.User;
 public interface UserRepository extends JpaRepository<User, UUID> {
 
   @Query("select u from User u where u.email = ?1")
-  public User findByEmail(String email);
+  public Optional<User> findByEmail(String email);
 
   @Query("select u from User u where u.cpf = ?1")
-  public User findByCpf(String cpf);
+  public Optional<User> findByCpf(String cpf);
 }

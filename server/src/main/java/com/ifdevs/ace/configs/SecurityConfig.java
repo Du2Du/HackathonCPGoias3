@@ -18,7 +18,6 @@ import com.ifdevs.ace.model.services.CustomUserDetailsService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
   @Bean
   PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
@@ -89,9 +88,9 @@ public class SecurityConfig {
         .authorizeHttpRequests()
         .requestMatchers(
             HttpMethod.POST,
-            "/api/v1/users/login",
-            "/api/v1/users/refresh",
-            "/api/v1/users")
+            "/api/v1/auth/login",
+            "/api/v1/auth/refresh",
+            "/api/v1/user/register")
         .permitAll()
         .anyRequest()
         .authenticated()
