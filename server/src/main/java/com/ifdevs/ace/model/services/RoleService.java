@@ -13,9 +13,13 @@ public class RoleService {
   @Autowired
   RoleRepository roleRepository;
 
-  public void generateNewRole(RoleEnum roleEnum) {
+  public void generateNewRole(String roleEnum) {
     Role role = new Role();
     role.setRoleName(roleEnum);
     roleRepository.save(role);
+  }
+
+  public Role getRoleByName(String roleEnum) {
+    return roleRepository.findByRoleName(roleEnum);
   }
 }

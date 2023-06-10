@@ -50,8 +50,6 @@ public class User {
   @CPF
   private String cpf;
 
-  @NotBlank
-  @NotNull
   @ManyToOne
   private Role role;
 }

@@ -31,8 +31,8 @@ public class UserService {
   }
 
   private Response verifyIfUserAlreadyExists(String cpf, String email) {
-    boolean userExistsWithEmail = userRepository.findByEmail(cpf).isPresent();
-    boolean userExistsWithCpf = userRepository.findByCpf(email).isPresent();
+    boolean userExistsWithEmail = userRepository.findByEmail(email).isPresent();
+    boolean userExistsWithCpf = userRepository.findByCpf(cpf).isPresent();
     if (userExistsWithCpf || userExistsWithEmail)
       throw new EntityExistsException("Usuário ja cadastrado");
     return null;
@@ -41,7 +41,7 @@ public class UserService {
   private Response generateNewUserEntity(RegisterProfessionalUserDTO registerProfessionalUserDTO) {
     User userToSave = new User();
     BeanUtils.copyProperties(registerProfessionalUserDTO, userToSave);
-    this.roleService.generateNewRole(RoleEnum.TEACHER);
+    userToSave.setRole(roleService.getRoleByName(RoleEnum.TEACHER.valueName));
     userToSave.setPassword(new BCryptPasswordEncoder().encode(userToSave.getPassword()));
     try {
       userRepository.save(userToSave);
