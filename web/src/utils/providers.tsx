@@ -4,7 +4,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const query = new QueryClient();
+const query = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchInterval: false,
+    },
+  },
+});
 
 export function Providers({ children }: { children: any }) {
   return (
