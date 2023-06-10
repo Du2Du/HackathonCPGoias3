@@ -1,0 +1,49 @@
+@import "./variables.module.scss";
+
+.homeMain {
+  background-color: $neutral-color;
+  height: 100%;
+
+  .homeNavBar {
+    padding: 10px 20px;
+    background-color: #10508d;
+    color: #fff;
+    display: flex;
+    height: 15%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-weight: 700;
+      font-size: 30px;
+    }
+  }
+
+  section {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .pageTitle {
+      color: $primary-color;
+      text-transform: uppercase;
+      font-size: 50px;
+      font-weight: 700;
+      text-align: center;
+      width: 50%;
+      letter-spacing: 4px;
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .homeMain {
+    .homeNavBar {
+      flex-direction: row;
+    }
+  }
+}
