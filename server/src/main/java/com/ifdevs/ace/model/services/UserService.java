@@ -1,5 +1,7 @@
 package com.ifdevs.ace.model.services;
 
+import java.util.UUID;
+
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.ifdevs.ace.exceptions.EntityExistsException;
 import com.ifdevs.ace.exceptions.ServerErrorException;
 import com.ifdevs.ace.model.dtos.RegisterProfessionalUserDTO;
+import com.ifdevs.ace.model.dtos.UserDTO;
 import com.ifdevs.ace.model.entities.User;
 import com.ifdevs.ace.model.repositories.UserRepository;
 import com.ifdevs.ace.utils.enums.RoleEnum;
@@ -49,5 +52,13 @@ public class UserService {
     } catch (Exception e) {
       throw new ServerErrorException("Ocorreu um erro, tente novamente mais tarde!");
     }
+  }
+
+  public ResponseEntity<UserDTO> getByUUID(UUID uuid) {
+    User user = userRepository.getReferenceById(uuid);
+    UserDTO userDTO = new UserDTO();
+    BeanUtils.copyProperties(user, userDTO);
+    userDTO.setRoleName(user.getRole().getRoleName());
+    return ResponseEntity.ok(userDTO);
   }
 }
