@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 dotenv.config();
 
 export const metadata = {
-  title: "ACE System",
+  title: "ACE",
 };
 
 export default function RootLayout({

@@ -11,7 +11,7 @@ export default function Home() {
               src="https://cdn.discordapp.com/attachments/801500020914257992/1116938572977680444/logo_transparente.png"
               alt="logo"
             />
-        <span className={styles.title}>Sistema A.C.E.</span>
+        <span className={styles.title}>ACE</span>
 
       </div>
         <div className="flex items-center gap-3">

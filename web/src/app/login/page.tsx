@@ -15,7 +15,7 @@ export default function Login() {
               src="https://cdn.discordapp.com/attachments/801500020914257992/1116938572977680444/logo_transparente.png"
               alt="logo"
             />
-            Sistema A.C.E.
+            ACE
           </a>
           <div className={styles.box+" w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"}>
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
