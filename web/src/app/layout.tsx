@@ -1,8 +1,7 @@
 import dotenv from "dotenv";
 import "./globals.scss";
 import { roboto } from "@/utils/fonts";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Providers } from "@/utils/providers";
 
 dotenv.config();
 
@@ -18,19 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        {children}{" "}
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-        />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

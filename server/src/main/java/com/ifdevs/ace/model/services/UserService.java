@@ -86,7 +86,7 @@ public class UserService {
   }
 
   public ResponseEntity<List<UserDTO>> getAllStudents() {
-    List<User> users = this.userRepository.findAll();
+    List<User> users = this.userRepository.findAllStudents();
     List<UserDTO> usersDTO = new ArrayList<>();
     users
         .forEach(user -> this.transformBehavioralToDTO(user, usersDTO));
@@ -97,6 +97,7 @@ public class UserService {
       List<UserDTO> usersDTO) {
     UserDTO userDTO = new UserDTO();
     BeanUtils.copyProperties(user, userDTO);
+    userDTO.setRoleName(user.getRole().getRoleName());
     usersDTO.add(userDTO);
   }
 

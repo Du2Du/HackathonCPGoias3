@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ifdevs.ace.model.dtos.BehavioralProfileDTO;
 import com.ifdevs.ace.model.dtos.RegisterProfessionalUserDTO;
 import com.ifdevs.ace.model.dtos.UserDTO;
 import com.ifdevs.ace.model.services.UserService;
