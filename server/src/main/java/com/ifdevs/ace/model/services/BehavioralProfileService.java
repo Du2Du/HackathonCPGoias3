@@ -45,7 +45,7 @@ public class BehavioralProfileService {
 
   private BehavioralProfile getBehavioralProfileByEstudentUUID(UUID uuid) {
     this.verifyIfEstudentExists(uuid);
-    return behavioralProfileRepository.getByEstudentUUID(uuid);
+    return behavioralProfileRepository.getByEstudentUUID(uuid).get();
   }
 
   private UserDTO verifyIfEstudentExists(UUID uuid) {
